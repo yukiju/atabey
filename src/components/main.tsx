@@ -4,6 +4,7 @@ import HeaderComponent from './header'
 import SignUpComponent from './signup';
 import { Switch, Route } from 'react-router-dom';
 import AboutComponent from './about';
+import TermsComponent from './terms';
 
 
 export const MainComponent: React.FC = () => {
@@ -39,6 +40,9 @@ export const MainComponent: React.FC = () => {
                         </Route>
                         <Route path="/signup">
                             <SignUpComponent />
+                        </Route>
+                        <Route path="/terms">
+                            <TermsComponent />
                         </Route>
                     </Switch>
                 

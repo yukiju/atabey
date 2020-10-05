@@ -12,10 +12,10 @@ export const NavBarComponent: React.FC = () => {
                 <div id="main-nav" className="row">
                     <div className="col-8">
                         <nav className="nav sticky-top">
-                            <a className="navbar-brand" href="#">
+                            <Link to="/" className="navbar-brand">
                                 <img src="" width="30" height="30" className="d-inline-block align-top" alt="" loading="lazy" />
                                 <span className="navbar-brand mb-0 h1" id="brand">Yukaju</span>
-                            </a>
+                            </Link>
 
                             <div className="navbar" id="navbarNavAltMarkup">
                                 <Link to="/home" className="nav-link active">Home <span className="sr-only">(current)</span></Link>

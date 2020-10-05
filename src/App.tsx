@@ -14,11 +14,13 @@ function App() {
 
   return (
     <React.Fragment>
+      <div id="">
       <BrowserRouter>
       <NavBarComponent />
       <MainComponent />
       <FooterComponent />
       </BrowserRouter>
+      </div>
     </React.Fragment>
   );
 }
