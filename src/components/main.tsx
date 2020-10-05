@@ -17,13 +17,13 @@ export const MainComponent: React.FC = () => {
                 
                     <Switch>
                         <Route path="/home">
-                            <Home />
+                            <AboutComponent />
                         </Route>
                         <Route path="/about">
                             <AboutComponent />
                         </Route>
                         <Route path="/tech">
-                            <Home />
+                            
                         </Route>
                         <Route path="/games">
                             <Home />
@@ -32,7 +32,7 @@ export const MainComponent: React.FC = () => {
                             <Home />
                         </Route>
                         <Route path="/trading">
-                            <Home />
+                            
                         </Route>
                         <Route path="/login">
                             <Home />

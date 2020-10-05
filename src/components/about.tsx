@@ -11,9 +11,11 @@ const AboutComponent: React.FC = () => {
                     <h1>About</h1>
                 </header>
                 <div>
-                <h2>Hello and Welcome to Yukaju.</h2>
-                <p>Yukaju is a blog.</p>
-                <p>Here you will find topics about Technology</p>
+                    <h2>Hello and Welcome to Yukaju.</h2>
+                    <p>I want to use this place to talk about the stuff that I do and what interests me.</p>
+                    <p>Documenting favorite games.</p>
+                    <p>Mostly geek and nerdy stuff.</p>
+                    <p>Also Wall Street, Technical Analisys, Watchlists.</p>
                 </div>
 
             </section>
