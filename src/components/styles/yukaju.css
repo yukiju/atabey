@@ -1,0 +1,33 @@
+#header-component {
+    background: #444;
+    color: #eee;
+    margin: 0;
+    padding-left: 1rem;
+    padding-top: .8rem;
+    padding-bottom: .1rem;
+}
+section {
+    
+}
+#about > div {
+    padding-left: 2rem;
+}
+#registration {
+    height: 610px;
+    margin: 0 auto;
+    width: 50%;
+}
+#user-registration-container {
+    text-align: center;    
+}
+.registration-header {
+    text-align: center;
+}
+.registration-header > h5 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    
+}
+.footer-container {
+    padding-bottom: 58px;    
+}
