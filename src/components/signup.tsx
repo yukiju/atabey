@@ -14,7 +14,7 @@ import {
     //Input,
     FormHelperText,
     OutlinedInput,
-    CssBaseline,
+    //CssBaseline,
     InputAdornment,
     IconButton,
     //Icon,
@@ -22,6 +22,7 @@ import {
     makeStyles
 } from '@material-ui/core'
 import { Visibility, VisibilityOff } from '@material-ui/icons'
+import * as authRemote from '../remote/auth'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -93,7 +94,7 @@ export const SignUpComponent: React.FC = () => {
             return
         }
         const payload = { username, email, password, firstName, lastName }
-        //await authRemote.signupRequest(payload)
+        await  authRemote.signupRequest(payload);
         // Need to handle response
     }
 
@@ -159,7 +160,7 @@ export const SignUpComponent: React.FC = () => {
                                 <InputLabel htmlFor="passwordVal">Verify password</InputLabel>
                                 <OutlinedInput
                                     id="passwordVal"
-                                    type={values.showPasswordVal ? 'text' : 'passworda'}
+                                    type={values.showPasswordVal ? 'text' : 'password'}
                                     value={values.passwordVal}
                                     onChange={handleChange('passwordVal')}
                                     endAdornment={

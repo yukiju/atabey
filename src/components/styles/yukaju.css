@@ -1,6 +1,7 @@
 #yuka-container {
     background-color: #efefef;
 }
+
 #header-component {
     background: #444;
     color: #eee;
@@ -9,37 +10,57 @@
     padding-top: .8rem;
     padding-bottom: .1rem;
 }
-section {
-    
-}
+
 #main-component {
-    background-color: #fafafa;
+    background-color: #efefef;
     text-shadow: 0px 0px 1px #666;
     color: #555;
-    
 }
-#about > div {
+
+#main-paper {
+    margin: 0 auto;
+    margin-top: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    min-height: 640px;
+    max-width: 960px;
+}
+
+#about>div {
     padding-left: 2rem;
 }
+
 #registration {
-    height: 610px;
     margin: 0 auto;
+    height: 610px;
     width: 50%;
 }
+
 #user-registration-container {
-    text-align: center;    
+    text-align: center;
 }
+
+.container {
+    
+}
+
 .registration-header {
     text-align: center;
 }
-.registration-header > h5 {
+
+.registration-header>h5 {
     padding-top: 2rem;
     margin-bottom: 2rem;
-    
+
 }
+
 .footer-container {
-    padding-bottom: 58px;    
+    padding-bottom: 58px;
 }
+
 .font-fira {
     font-family: 'Fira Sans', sans-serif;
     font-weight: normal;
@@ -63,6 +84,7 @@ section {
     font-weight: normal;
     font-size: 1.1em;
 }
+
 .logotxt {
     font-family: 'Fira Sans', sans-serif;
     /* font-family: 'Oxygen', sans-serif; */
@@ -73,6 +95,8 @@ section {
     color: #fafafa;
     text-shadow: 0px 0px 2px #071530;
 }
-#main-component {
-    padding-bottom: 162px;
+
+#profile-card {
+    max-width: 540px;
+    margin: 0 auto;
 }
