@@ -13,11 +13,11 @@ export const NavBarComponent: React.FC<RouteComponentProps> = (props) => {
 
     
     const renderOnCurrentPath = (path: string) => {
-        console.log(props.location.pathname)
+        //console.log(props.location.pathname)
         return path === props.location.pathname ? <span className="sr-only">(current)</span> : <span></span>
 
     }
-    console.log(props)
+    //console.log(props)
     return (
 
         <div className="bg-dark">

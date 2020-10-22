@@ -1,12 +1,13 @@
 import React from 'react'
 import { Paper } from '@material-ui/core'
-import Home from './home'
-import SignUpComponent from './signup';
+import SignUpComponent from './auth.components/signup';
 import { Switch, Route } from 'react-router-dom';
 import AboutComponent from './about';
 import TermsComponent from './terms';
-import GamesComponent from './games';
 import ProfileCardComponent from './profileCard';
+import GamesContentComponent from './games.component/gamesContentComponent';
+import AirForceContentComponent from './games.component/topics/airForceContent';
+import DraftEditor from './content.richtexteditor/draftEditor';
 
 
 export const MainComponent: React.FC = () => {
@@ -21,36 +22,18 @@ export const MainComponent: React.FC = () => {
                         {/*<HeaderComponent />*/}
 
                         <Switch>
-                            <Route path="/home">
-                                <AboutComponent />
-                            </Route>
-                            <Route path="/about">
-                                <AboutComponent />
-                            </Route>
-                            <Route path="/tech">
-
-                            </Route>
-                            <Route path="/games">
-                                <GamesComponent />
-                            </Route>
-                            <Route path="/linux">
-                                <Home />
-                            </Route>
-                            <Route path="/trading">
-
-                            </Route>
-                            <Route path="/login">
-                                <Home />
-                            </Route>
-                            <Route path="/signup">
-                                <SignUpComponent />
-                            </Route>
-                            <Route path="/terms">
-                                <TermsComponent />
-                            </Route>
-                            <Route path="/profile">
-                                <ProfileCardComponent />
-                            </Route>
+                            <Route exact path="/" component={AboutComponent} />
+                            <Route path="/home" component={AboutComponent} />
+                            <Route path="/about" component={AboutComponent} />
+                            <Route path="/tech" component={DraftEditor} />
+                            <Route exact path="/games" component={GamesContentComponent} />
+                            <Route path="/games/1945-air-force" component={AirForceContentComponent} />
+                            <Route path="/linux" component={AboutComponent} />
+                            <Route path="/trading" component={AboutComponent} />
+                            <Route path="/login" component={AboutComponent} />
+                            <Route path="/signup" component={SignUpComponent} />
+                            <Route path="/terms" component={TermsComponent} />
+                            <Route path="/profile" component={ProfileCardComponent} />
                         </Switch>
                     </Paper>
                 </main>

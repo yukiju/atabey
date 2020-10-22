@@ -22,26 +22,28 @@ import {
     makeStyles
 } from '@material-ui/core'
 import { Visibility, VisibilityOff } from '@material-ui/icons'
-import * as authRemote from '../remote/auth'
+import * as authRemote from '../../remote/auth'
+import { useHistory } from 'react-router'
 
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        '& > *': {
-            margin: theme.spacing(2),
-            width: '60ch'
-        },
+        //    '& > *': {
+        //        margin: theme.spacing(2),
+        //        width: '60ch'
+        //    },
     },
     form: {
         marginTop: 20,
-        width: '50ch',
-        padding: 10
+        //width: '50ch',
+        paddingTop: 20,
+        paddingBottom: 10,
     },
     margin: {
         margin: theme.spacing(1),
     },
     withoutLabel: {
-        marginTop: theme.spacing(3),
+        //marginTop: theme.spacing(3),
     },
     textField: {
         width: '40ch',
@@ -54,47 +56,32 @@ const useStyles = makeStyles((theme) => ({
 export const SignUpComponent: React.FC = () => {
 
     const classes = useStyles();
+    const history = useHistory();
 
-    const [values, setValues] = useState({
-        username: '',
-        email: '',
-        password: '',
-        showPassword: false,
-        passwordVal: '',
-        showPasswordVal: false,
-        firstName: '',
-        lastName: '',
-    });
 
-    const handleChange = (prop: any) => (event: any) => {
-        setValues({ ...values, [prop]: event.target.value });
-    }
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+    const [samePassword, setSamePassword] = useState('');
+    const [showSamePassword, setShowSamePassword] = useState(false);
+    //const [firstName, setFirstName] = useState('');
+    //const [lastName, setLastName] = useState('');
 
-    const handleClickShowPassword = () => {
-        setValues({ ...values, showPassword: !values.showPassword });
-    }
-
-    const handleClickShowPasswordVal = () => {
-        setValues({ ...values, showPasswordVal: !values.showPasswordVal });
-    }
-
-    const handleMouseDownPassword = (event: any) => {
-        event.preventDefault();
-    }
-
-    const username = values.username
-    const email = values.email
-    const password = values.password
-    const passwordVal = values.passwordVal
-    const firstName = values.firstName
-    const lastName = values.lastName
 
     const signup = async () => {
-        if (password !== passwordVal) {
+        if (password !== samePassword) {
             return
         }
-        const payload = { username, email, password, firstName, lastName }
-        await  authRemote.signupRequest(payload);
+        //const payload = { username, email, password, firstName, lastName }
+        const payload = { username, email, password }
+        await authRemote.signupRequest(payload).then(res => {
+            console.log(res)
+        }).catch(e => {
+            console.log(e)
+        })
+
+
         // Need to handle response
     }
 
@@ -110,24 +97,27 @@ export const SignUpComponent: React.FC = () => {
                     {/*<CssBaseline />*/}
                     <Form>
                         <Paper className={classes.form} elevation={3}>
+                            <header>
+                                <h5>Create a new account.</h5>
+                            </header>
 
                             <FormControl required className={clsx(classes.margin, classes.textField)} variant="outlined">
                                 <InputLabel htmlFor="username">Username</InputLabel>
                                 <OutlinedInput
                                     id="username"
-                                    value={values.username}
+                                    value={username}
                                     labelWidth={85}
-                                    onChange={handleChange('username')}
+                                    onChange={(e) => setUsername(e.target.value)}
                                 />
                             </FormControl>
                             <FormControl required className={clsx(classes.margin, classes.textField)} variant="outlined">
                                 <InputLabel htmlFor="email">Email</InputLabel>
                                 <OutlinedInput
                                     id="email"
-                                    value={values.email}
+                                    value={email}
                                     aria-describedby="email-txt"
                                     labelWidth={50}
-                                    onChange={handleChange('email')}
+                                    onChange={(e) => setEmail(e.target.value)}
                                     inputProps={{
                                         'aria-label': '',
                                     }}
@@ -138,18 +128,18 @@ export const SignUpComponent: React.FC = () => {
                                 <InputLabel htmlFor="password">Password</InputLabel>
                                 <OutlinedInput
                                     id="password"
-                                    type={values.showPassword ? 'text' : 'password'}
-                                    value={values.password}
-                                    onChange={handleChange('password')}
+                                    type={showPassword ? 'text' : 'password'}
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
                                     endAdornment={
                                         <InputAdornment position="end">
                                             <IconButton
                                                 aria-label="toggle password visibility"
-                                                onClick={handleClickShowPassword}
-                                                onMouseDown={handleMouseDownPassword}
+                                                onClick={() => setShowPassword(!showPassword)}
+                                                onMouseDown={(e) => e.preventDefault()}
                                                 edge="end"
                                             >
-                                                {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                                                {showPassword ? <Visibility /> : <VisibilityOff />}
                                             </IconButton>
                                         </InputAdornment>
                                     }
@@ -160,18 +150,18 @@ export const SignUpComponent: React.FC = () => {
                                 <InputLabel htmlFor="passwordVal">Verify password</InputLabel>
                                 <OutlinedInput
                                     id="passwordVal"
-                                    type={values.showPasswordVal ? 'text' : 'password'}
-                                    value={values.passwordVal}
-                                    onChange={handleChange('passwordVal')}
+                                    type={showSamePassword ? 'text' : 'password'}
+                                    value={samePassword}
+                                    onChange={(e) => setSamePassword(e.target.value)}
                                     endAdornment={
                                         <InputAdornment position="end">
                                             <IconButton
                                                 aria-label="toggle password visibility"
-                                                onClick={handleClickShowPasswordVal}
-                                                onMouseDown={handleMouseDownPassword}
+                                                onClick={() => setShowSamePassword(!showSamePassword)}
+                                                onMouseDown={(e) => e.preventDefault()}
                                                 edge="end"
                                             >
-                                                {values.showPasswordVal ? <Visibility /> : <VisibilityOff />}
+                                                {showSamePassword ? <Visibility /> : <VisibilityOff />}
                                             </IconButton>
                                         </InputAdornment>
                                     }

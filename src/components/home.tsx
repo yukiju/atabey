@@ -4,7 +4,8 @@ import { Table } from 'react-bootstrap'
 
 export const Home: React.FC = () => {
     const prize = 50000
-    const [medals, setMedals] = useState(prize)
+    //const [medals, setMedals] = useState(prize)
+    const [medals] = useState(prize)
     
     const numberWithCommas = (x: number) => {
         return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");

@@ -1,15 +1,34 @@
 import React from 'react'
-import { Paper } from '@material-ui/core'
+import { Paper, makeStyles } from '@material-ui/core'
+import a1945 from '../img/1945-art-1.gif'
 
+const useStyles = makeStyles({
+    img: {
+        verticalAlign: "middle",
+        borderStyle: "none",
+    },
+    cardImg: {
+        borderRadius: "calc(.25rem - 1px)",
+        flexShrink: 0,
+        width: "100%",
+        margin: 4,
+    },
+    imgPadding: {
+        padding: 2,
+    },
+
+})
 
 const ProfileCardComponent: React.FC = () => {
+
+    const styles = useStyles();
 
     return (
         <React.Fragment>
             <Paper className="card mb-3" id="profile-card" elevation={3}>
                 <div className="row no-gutters">
                     <div className="col-md-4">
-                        <img src="..." className="card-img" alt="..." loading="lazy" />
+                        <img src={a1945} className={(styles.img, styles.cardImg)} alt="..." loading="lazy" />
                     </div>
                     <div className="col-md-8">
                         <div className="card-body">
